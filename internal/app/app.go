@@ -37,3 +37,13 @@ func Nedel() {
 	fmt.Println(sum)
 
 }
+
+func Contains(a []string, x string) bool {
+	for _, item := range a {
+		if item == x {
+			return true
+		}
+
+	}
+	return false
+}
