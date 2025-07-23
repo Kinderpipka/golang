@@ -47,3 +47,14 @@ func Contains(a []string, x string) bool {
 	}
 	return false
 }
+
+func GetMax(a ...int) {
+	sum := 0
+	for _, item := range a {
+		if item > sum {
+			sum = item
+		}
+	}
+	fmt.Println(sum)
+
+}
