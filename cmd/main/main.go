@@ -6,5 +6,6 @@ import (
 
 func main() {
 	// app.Ykazatel()
-	app.Radius()
+	// app.Radius()
+	app.Nedel()
 }

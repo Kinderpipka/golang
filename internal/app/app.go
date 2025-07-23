@@ -23,3 +23,17 @@ func Radius() {
 	ploshad := 3.14 * *r
 	fmt.Println(ploshad)
 }
+
+func Nedel() {
+
+	n := []string{"понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"}
+	b := n[:5]
+	n = n[5:]
+
+	sum := append(b, n...)
+
+	fmt.Println(b)
+	fmt.Println(n)
+	fmt.Println(sum)
+
+}
