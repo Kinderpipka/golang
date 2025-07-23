@@ -1,7 +1,10 @@
 package app
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"time"
 )
 
 func Ykazatel() {
@@ -56,5 +59,41 @@ func GetMax(a ...int) {
 		}
 	}
 	fmt.Println(sum)
+
+}
+
+func Sozdanie() {
+	chitka, err := os.Open("cmd/main/06_task_in.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer chitka.Close()
+
+	scanenrr := bufio.NewScanner(chitka)
+	lineCount := 0
+	zapis, err := os.Create("cmd/main/out.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer func() {
+		zapis.Close()
+		fmt.Printf("%d", lineCount)
+	}()
+
+	lineNumber := 1
+	zap := bufio.NewWriter(zapis)
+	for scanenrr.Scan() {
+		zap.WriteString(fmt.Sprintf("%d,%s \n", lineNumber, scanenrr.Text()))
+		lineNumber++
+		lineCount++
+	}
+	zap.Flush()
+	defer logTime()
+
+}
+
+func logTime() {
+	time1 := time.Now()
+	fmt.Println(time.Since(time1))
 
 }
